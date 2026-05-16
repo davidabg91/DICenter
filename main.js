@@ -18,6 +18,9 @@ const TRANSLATIONS = {
         "wifi-label-pass": "Парола:",
         "wifi-btn": "Копирай паролата",
         "copy-btn": "Копирай",
+        "safe-h3": "Сейф за ключове",
+        "safe-p": "Вижте как да отворите сейфа и вземете ключовете за вашия престой.",
+        "click-to-zoom": "Кликни за преглед",
         "smart-h3": "Smart Удобства",
         "smart-p": "Апартаментът е оборудван с Google Home за вашия комфорт. Кажете „Hey Google“ и опитайте:",
         "discovery-h2": "Открийте Плевен",
@@ -116,6 +119,9 @@ const TRANSLATIONS = {
         "wifi-label-pass": "Password:",
         "wifi-btn": "Copy Password",
         "copy-btn": "Copy",
+        "safe-h3": "Key Safe",
+        "safe-p": "See how to open the safe and get the keys for your stay.",
+        "click-to-zoom": "Click to view",
         "smart-h3": "Smart Amenities",
         "smart-p": "The apartment is equipped with Google Home for your comfort. Say \"Hey Google\" and try:",
         "discovery-h2": "Discover Pleven",
@@ -254,6 +260,12 @@ function setLanguage(lang) {
             }
         }
     });
+
+    // Update Safe Images
+    const safePreviewImg = document.getElementById('safe-preview-img');
+    const safeModalImg = document.getElementById('safe-modal-img');
+    if (safePreviewImg) safePreviewImg.src = lang === 'bg' ? 'safebg.png' : 'safeEN.png';
+    if (safeModalImg) safeModalImg.src = lang === 'bg' ? 'safebg.png' : 'safeEN.png';
 
     // Handle month transition for calendar
     if (document.getElementById('calendar-grid')) {

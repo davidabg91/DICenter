@@ -299,6 +299,59 @@ h1, h2, h3, h4, .logo { font-family: 'Sora', sans-serif; letter-spacing: -0.02em
     font-family: 'Sora', sans-serif;
     line-height: 1.2;
 }
+
+.card-icon.gold { background: rgba(180, 83, 9, 0.08); color: var(--accent-gold); }
+
+.safe-image-preview {
+    margin-top: 1rem;
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--card-border);
+    transition: all 0.4s;
+    background: #f8fafc;
+}
+
+.safe-image-preview:hover {
+    transform: scale(1.02);
+    border-color: var(--accent-gold);
+}
+
+.safe-thumb {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    opacity: 0.8;
+    transition: opacity 0.4s;
+}
+
+.safe-image-preview:hover .safe-thumb {
+    opacity: 1;
+}
+
+.zoom-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.safe-image-preview:hover .zoom-overlay {
+    opacity: 1;
+}
+
+.zoom-overlay i { width: 24px; height: 24px; }
+.zoom-overlay span { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+
 .pill-container { 
     display: flex; 
     flex-wrap: wrap; 

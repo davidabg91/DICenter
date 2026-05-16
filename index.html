@@ -66,6 +66,19 @@
         <!-- Connectivity & Comfort -->
         <section class="essentials container">
             <div class="grid-layout">
+                <div class="card premium safe-card">
+                    <div class="card-icon gold"><i data-lucide="key"></i></div>
+                    <h3 data-i18n="safe-h3">Сейф за ключове</h3>
+                    <p data-i18n="safe-p">Вижте как да отворите сейфа и вземете ключовете за вашия престой.</p>
+                    <div class="safe-image-preview" onclick="toggleModal('safe-modal')">
+                        <img id="safe-preview-img" src="safebg.png" alt="Safe Instructions" class="safe-thumb">
+                        <div class="zoom-overlay">
+                            <i data-lucide="zoom-in"></i>
+                            <span data-i18n="click-to-zoom">Кликни за преглед</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card premium wifi-card">
                     <div class="card-icon blue"><i data-lucide="wifi"></i></div>
                     <h3 data-i18n="wifi-h3">Бърз Интернет</h3>
@@ -503,6 +516,23 @@
             </div>
         </div>
     </footer>
+
+    <!-- Safe Modal -->
+    <div id="safe-modal" class="modal-blur hidden-new" onclick="closeModalOnOutsideClick(event, 'safe-modal')">
+        <div class="modal-card wide">
+            <button class="modal-close" onclick="toggleModal('safe-modal')">&times;</button>
+            <div class="modal-head">
+                <i data-lucide="key"></i>
+                <h3 data-i18n="safe-h3">Сейф за ключове</h3>
+                <p data-i18n="safe-p">Инструкции за достъп</p>
+            </div>
+            <div class="safe-guide-container">
+                <div class="remote-img-wrapper" onclick="this.classList.toggle('zoom-active')">
+                    <img id="safe-modal-img" src="safebg.png" alt="Safe Guide" class="remote-img">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Init icons
