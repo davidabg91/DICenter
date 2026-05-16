@@ -649,9 +649,9 @@ h1, h2, h3, h4, .logo { font-family: 'Sora', sans-serif; letter-spacing: -0.02em
 .dot.today { background: var(--accent-gold); box-shadow: 0 0 10px rgba(180, 83, 9, 0.3); }
 
 .calendar-grid-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 }
 
 .day-header {
@@ -1672,12 +1672,12 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
 
 @media (max-width: 768px) {
     .properties-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1rem;
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
     }
     .property-wrapper {
-        padding: 1rem !important;
-        max-width: 100%;
+        padding: 1.5rem !important;
+        max-width: 450px;
         margin: 0 auto;
         border-radius: var(--radius-lg);
     }
@@ -1687,15 +1687,16 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
         width: 100% !important;
         max-width: 100% !important;
         min-width: 100% !important;
-        height: 350px !important; /* Adjusted height for 2-column layout */
+        height: 300px !important; /* Smaller panels to reduce empty space */
     }
 }
 
 @media (max-width: 480px) {
     .property-wrapper {
         padding: 1rem !important;
+        max-width: 100%;
     }
     .airbnb-embed-frame {
-        height: 520px !important; /* Slightly taller for narrow screens */
+        height: 280px !important; /* Even smaller for very narrow screens */
     }
 }
