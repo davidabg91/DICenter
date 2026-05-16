@@ -22,6 +22,7 @@ const TRANSLATIONS = {
         "safe-p": "Вижте как да отворите сейфа и вземете ключовете за вашия престой.",
         "safe-notice": "ВАЖНО: Ключът е само за горната ключалка!",
         "click-to-zoom": "Отвори на цял екран",
+        "view-gallery": "Виж галерия",
         "smart-h3": "Smart Удобства",
         "smart-p": "Апартаментът е оборудван с Google Home за вашия комфорт. Кажете „Hey Google“ и опитайте:",
         "discovery-h2": "Открийте Плевен",
@@ -124,6 +125,7 @@ const TRANSLATIONS = {
         "safe-p": "See how to open the safe and get the keys for your stay.",
         "safe-notice": "IMPORTANT: The key is for the upper lock only!",
         "click-to-zoom": "Open full screen",
+        "view-gallery": "View Gallery",
         "smart-h3": "Smart Amenities",
         "smart-p": "The apartment is equipped with Google Home for your comfort. Say \"Hey Google\" and try:",
         "discovery-h2": "Discover Pleven",
@@ -236,6 +238,54 @@ function initLanguage() {
         currentLang = browserLang.startsWith('bg') ? 'bg' : 'en';
     }
     setLanguage(currentLang);
+}
+
+
+// Gallery Logic
+const GALLERIES = {
+    'cantonata': {
+        title: { bg: 'Ресторант "Кантоната"', en: 'Restaurant "Cantonata"' },
+        images: ['Cantonata.png', 'cantona.jpg', 'cantona2.jpg']
+    },
+    'himera': {
+        title: { bg: 'Механа "ХИМЕРА"', en: 'Tavern "HIMERA"' },
+        images: ['himera(1).jfif', 'himera2.jpeg']
+    },
+    'life': {
+        title: { bg: 'Ресторант "Life"', en: 'Restaurant "Life"' },
+        images: ['life.jpg', 'life2.jpg']
+    }
+};
+
+let currentGallery = null;
+let currentGalleryIndex = 0;
+
+function openGallery(id) {
+    currentGallery = GALLERIES[id];
+    currentGalleryIndex = 0;
+    updateGallery();
+    toggleModal('gallery-modal');
+}
+
+function updateGallery() {
+    if (!currentGallery) return;
+    const img = document.getElementById('gallery-img');
+    const title = document.getElementById('gallery-title');
+    const current = document.getElementById('gallery-current');
+    const total = document.getElementById('gallery-total');
+
+    img.src = currentGallery.images[currentGalleryIndex];
+    title.textContent = currentGallery.title[currentLang];
+    current.textContent = currentGalleryIndex + 1;
+    total.textContent = currentGallery.images.length;
+}
+
+function changeGalleryImage(dir) {
+    if (!currentGallery) return;
+    currentGalleryIndex += dir;
+    if (currentGalleryIndex >= currentGallery.images.length) currentGalleryIndex = 0;
+    if (currentGalleryIndex < 0) currentGalleryIndex = currentGallery.images.length - 1;
+    updateGallery();
 }
 
 function setLanguage(lang) {
