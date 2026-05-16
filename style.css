@@ -905,10 +905,10 @@ h1, h2, h3, h4, .logo { font-family: 'Sora', sans-serif; letter-spacing: -0.02em
     height: 14px;
     color: var(--accent-gold);
 }
-.testimonial-stars i.fill {
-    fill: #fbbf24;
-    color: #fbbf24;
-    filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.4));
+.testimonial-stars svg {
+    width: 20px !important;
+    height: 20px !important;
+    filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.4));
 }
 .testimonial-text {
     font-style: italic;
