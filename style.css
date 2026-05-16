@@ -691,11 +691,6 @@ h1, h2, h3, h4, .logo { font-family: 'Sora', sans-serif; letter-spacing: -0.02em
     opacity: 0.6;
 }
 
-.calendar-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 4rem;
-}
 
 .calendar-month {
     flex: 1;
@@ -1197,6 +1192,15 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
     .hero { min-height: auto; padding: 4rem 0; }
     
     .bento-card { height: 400px; }
+
+    /* Calendar Mobile Optimization */
+    .calendar-card { padding: 1.5rem 1rem; }
+    .days-grid { gap: 0.5rem; }
+    .day { font-size: 0.9rem; border-radius: 8px; }
+    .day-header, .day-name { font-size: 0.7rem; padding-bottom: 1rem; }
+    .legend { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .legend-item { font-size: 0.75rem; }
+    .calendar-header-info { margin-bottom: 1.5rem; }
 }
 
 @media (max-width: 480px) {
@@ -1417,10 +1421,12 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
 .order-note { font-size: 0.85rem; color: var(--accent-gold); font-weight: 800; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
 
 @media (max-width: 1024px) {
-    .experience-card { grid-template-columns: 1fr; margin: 4rem 1.5rem 6rem; }
-    .exp-content { padding: 4rem 2.5rem; }
-    .exp-image { min-height: 350px; }
-    .exp-content h2 { font-size: 3.2rem; }
+    .experience-card { grid-template-columns: 1fr; margin: 2rem 1rem 4rem; }
+    .exp-content { padding: 3rem 1.5rem; }
+    .exp-image { min-height: 300px; }
+    .exp-content h2 { font-size: 2.8rem; }
+    .price-tag { top: 1rem; right: 1rem; padding: 0.8rem 1.5rem; font-size: 1.4rem; }
+    .exp-meta { padding: 1.5rem; gap: 1.5rem; margin-bottom: 2.5rem; }
 }
 
 /* Luxury Feedback Card */
@@ -1666,19 +1672,22 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
 
 @media (max-width: 768px) {
     .properties-grid {
-        grid-template-columns: 1fr !important;
-        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
     }
     .property-wrapper {
-        padding: 1.5rem !important;
+        padding: 1rem !important;
         max-width: 100%;
         margin: 0 auto;
+        border-radius: var(--radius-lg);
     }
+    .property-badge-header { margin-bottom: 1.5rem; }
+    .here-badge-inline { padding: 0.5rem 1rem; font-size: 0.8rem; gap: 0.4rem; }
     .airbnb-embed-frame {
         width: 100% !important;
         max-width: 100% !important;
         min-width: 100% !important;
-        height: 480px !important; /* Airbnb widgets often need a fixed height to show properly on mobile */
+        height: 350px !important; /* Adjusted height for 2-column layout */
     }
 }
 
