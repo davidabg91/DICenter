@@ -1548,6 +1548,41 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
     }
     
     .hero { min-height: auto; padding: 4rem 0; }
+
+    /* Discovery Modal Mobile Fixes */
+    .discovery-hero {
+        height: 250px;
+        margin-bottom: 2rem;
+        border-radius: 1.5rem;
+    }
+    .discovery-hero-overlay {
+        padding: 2rem;
+    }
+    .discovery-hero-overlay h2 {
+        font-size: 2rem;
+    }
+    .modal-card.wide {
+        width: 95%;
+        padding: 1.5rem;
+        max-height: 85vh;
+    }
+    .wiki-summary {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 1.5rem 0;
+    }
+    .discovery-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .discovery-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .working-hours {
+        padding: 1rem;
+        margin-top: 1.5rem;
+    }
     
     .bento-card { height: 400px; }
 
