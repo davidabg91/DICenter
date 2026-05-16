@@ -819,8 +819,8 @@ h1, h2, h3, h4, .logo { font-family: 'Sora', sans-serif; letter-spacing: -0.02em
 
 .dot { width: 16px; height: 16px; border-radius: 4px; }
 .dot.reserved { 
-    background: repeating-linear-gradient(45deg, rgba(180, 83, 9, 0.2), rgba(180, 83, 9, 0.2) 2px, rgba(180, 83, 9, 0.4) 2px, rgba(180, 83, 9, 0.4) 4px);
-    border: 1px solid rgba(180, 83, 9, 0.3);
+    background: repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.2) 2px, rgba(239, 68, 68, 0.4) 2px, rgba(239, 68, 68, 0.4) 4px);
+    border: 1px solid rgba(239, 68, 68, 0.3);
 }
 .dot.today { 
     background: var(--accent-gold-soft); 
@@ -859,9 +859,10 @@ h1, h2, h3, h4, .logo { font-family: 'Sora', sans-serif; letter-spacing: -0.02em
 
 .day.today { background: var(--accent-gold-soft); color: var(--accent-gold); border: 2.5px solid var(--accent-gold); }
 .day.reserved { 
-    background: repeating-linear-gradient(45deg, rgba(180, 83, 9, 0.05), rgba(180, 83, 9, 0.05) 10px, rgba(180, 83, 9, 0.1) 10px, rgba(180, 83, 9, 0.1) 20px);
-    color: var(--accent-gold); 
-    opacity: 0.6;
+    background: repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.05) 10px, rgba(239, 68, 68, 0.1) 10px, rgba(239, 68, 68, 0.1) 20px);
+    color: #ef4444; 
+    border-color: rgba(239, 68, 68, 0.2);
+    text-decoration: line-through;
 }
 .day.available { background: #fff; border-color: rgba(180, 83, 9, 0.1); }
 .day.empty { visibility: hidden; }
