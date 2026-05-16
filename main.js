@@ -245,15 +245,15 @@ function initLanguage() {
 const GALLERIES = {
     'cantonata': {
         title: { bg: 'Ресторант "Кантоната"', en: 'Restaurant "Cantonata"' },
-        images: ['Cantonata.png', 'cantona.jpg', 'cantona2.jpg']
+        images: ['cantona.jpg', 'cantona2.jpg']
     },
     'himera': {
         title: { bg: 'Механа "ХИМЕРА"', en: 'Tavern "HIMERA"' },
-        images: ['himera(1).jfif', 'himera2.jpeg']
+        images: ['himera2.jpeg']
     },
     'life': {
         title: { bg: 'Ресторант "Life"', en: 'Restaurant "Life"' },
-        images: ['life.jpg', 'life2.jpg']
+        images: ['life2.jpg']
     }
 };
 
@@ -278,6 +278,9 @@ function updateGallery() {
     title.textContent = currentGallery.title[currentLang];
     current.textContent = currentGalleryIndex + 1;
     total.textContent = currentGallery.images.length;
+
+    const navs = document.querySelectorAll('.gallery-nav');
+    navs.forEach(nav => nav.style.display = currentGallery.images.length > 1 ? 'flex' : 'none');
 }
 
 function changeGalleryImage(dir) {
