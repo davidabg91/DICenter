@@ -71,11 +71,15 @@
                     <h3 data-i18n="safe-h3">Сейф за ключове</h3>
                     <p data-i18n="safe-p">Вижте как да отворите сейфа и вземете ключовете за вашия престой.</p>
                     <div class="safe-image-preview" onclick="toggleModal('safe-modal')">
-                        <img id="safe-preview-img" src="safebg.png" alt="Safe Instructions" class="safe-thumb">
+                        <img id="safe-preview-img" src="safeinstruc.png" alt="Safe Instructions" class="safe-thumb">
                         <div class="zoom-overlay">
                             <i data-lucide="zoom-in"></i>
                             <span data-i18n="click-to-zoom">Кликни за преглед</span>
                         </div>
+                    </div>
+                    <div class="safe-notice">
+                        <i data-lucide="info"></i>
+                        <span data-i18n="safe-notice">ВАЖНО: Ключът е само за горната ключалка!</span>
                     </div>
                 </div>
 
@@ -528,8 +532,12 @@
             </div>
             <div class="safe-guide-container">
                 <div class="remote-img-wrapper" onclick="this.classList.toggle('zoom-active')">
-                    <img id="safe-modal-img" src="safebg.png" alt="Safe Guide" class="remote-img">
+                    <img id="safe-modal-img" src="safeinstruc.png" alt="Safe Guide" class="remote-img">
                 </div>
+            </div>
+            <div class="modal-notice">
+                <i data-lucide="info"></i>
+                <p data-i18n="safe-notice">ВАЖНО: Ключът е само за горната ключалка!</p>
             </div>
         </div>
     </div>

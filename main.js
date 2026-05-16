@@ -20,6 +20,7 @@ const TRANSLATIONS = {
         "copy-btn": "Копирай",
         "safe-h3": "Сейф за ключове",
         "safe-p": "Вижте как да отворите сейфа и вземете ключовете за вашия престой.",
+        "safe-notice": "ВАЖНО: Ключът е само за горната ключалка!",
         "click-to-zoom": "Кликни за преглед",
         "smart-h3": "Smart Удобства",
         "smart-p": "Апартаментът е оборудван с Google Home за вашия комфорт. Кажете „Hey Google“ и опитайте:",
@@ -121,6 +122,7 @@ const TRANSLATIONS = {
         "copy-btn": "Copy",
         "safe-h3": "Key Safe",
         "safe-p": "See how to open the safe and get the keys for your stay.",
+        "safe-notice": "IMPORTANT: The key is for the upper lock only!",
         "click-to-zoom": "Click to view",
         "smart-h3": "Smart Amenities",
         "smart-p": "The apartment is equipped with Google Home for your comfort. Say \"Hey Google\" and try:",
@@ -264,8 +266,8 @@ function setLanguage(lang) {
     // Update Safe Images
     const safePreviewImg = document.getElementById('safe-preview-img');
     const safeModalImg = document.getElementById('safe-modal-img');
-    if (safePreviewImg) safePreviewImg.src = lang === 'bg' ? 'safebg.png' : 'safeEN.png';
-    if (safeModalImg) safeModalImg.src = lang === 'bg' ? 'safebg.png' : 'safeEN.png';
+    if (safePreviewImg) safePreviewImg.src = 'safeinstruc.png';
+    if (safeModalImg) safeModalImg.src = 'safeinstruc.png';
 
     // Handle month transition for calendar
     if (document.getElementById('calendar-grid')) {
