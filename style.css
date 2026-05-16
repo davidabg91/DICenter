@@ -986,10 +986,18 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
     height: auto;
     display: block;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    min-width: 700px;
 }
 
-.zoom-active .remote-img { min-width: 1400px; }
+.remote-img-wrapper:not(.zoom-active) .remote-img {
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.zoom-active .remote-img { 
+    width: auto;
+    max-width: none;
+    min-width: 1200px; 
+}
 
 .video-section {
     margin-top: 5rem;
@@ -1013,10 +1021,11 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
 }
 
 @media (max-width: 768px) {
-    .modal-card.wide { padding: 4rem 1.5rem; }
-    .remote-guide-container { padding: 1.5rem; border-radius: 1.5rem; }
-    .remote-img { min-width: 600px; }
-    .zoom-active .remote-img { min-width: 1000px; }
+    .modal-card.wide { padding: 3rem 1rem; width: 95%; }
+    .remote-guide-container { padding: 1rem; border-radius: 1.5rem; }
+    .remote-img { min-width: auto; }
+    .zoom-active .remote-img { min-width: 800px; }
+    .modal-close { top: 1.5rem; right: 1.5rem; width: 40px; height: 40px; }
 }
 
 .modal-close {
