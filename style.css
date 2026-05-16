@@ -550,8 +550,8 @@ h1, h2, h3, h4, .logo { font-family: 'Sora', sans-serif; letter-spacing: -0.02em
 
 .panorama { grid-column: span 2; grid-row: span 2; }
 .cascade { grid-column: span 1; grid-row: span 1; }
-.museum { grid-column: span 1; grid-row: span 1; }
-.park { grid-column: span 3; grid-row: span 1; }
+.park { grid-column: span 1; grid-row: span 1; }
+.museum { grid-column: span 3; grid-row: span 1; }
 
 .bento-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 2s; }
 .bento-card:hover img { transform: scale(1.1); }
