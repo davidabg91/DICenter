@@ -63,6 +63,10 @@ const TRANSLATIONS = {
         "calendar-res": "Заето",
         "calendar-today": "Днес",
         "calendar-loader": "Зареждане на календар...",
+        "explore-more": "Разгледай повече",
+        "wiki-info": "Информация от Wikipedia",
+        "read-on-wiki": "Прочети в Wikipedia",
+        "view-on-maps": "Виж в Google Maps",
         "rules-h2": "Вътрешни правила на дома",
         "rules-p": "Ще отседнете в нечий дом, затова се отнасяйте към него с грижа и уважение.",
         "rules-cat1": "Настаняване и освобождаване",
@@ -170,6 +174,10 @@ const TRANSLATIONS = {
         "calendar-res": "Reserved",
         "calendar-today": "Today",
         "calendar-loader": "Loading calendar...",
+        "explore-more": "Explore more",
+        "wiki-info": "Wikipedia Information",
+        "read-on-wiki": "Read on Wikipedia",
+        "view-on-maps": "View on Google Maps",
         "rules-h2": "House Rules",
         "rules-p": "You are staying in someone's home, so please treat it with care and respect.",
         "rules-cat1": "Check-in and Check-out",
@@ -289,6 +297,69 @@ function updateGallery() {
 
     const navs = document.querySelectorAll('.gallery-nav');
     navs.forEach(nav => nav.style.display = currentGallery.images.length > 1 ? 'flex' : 'none');
+}
+
+const DISCOVERY_DATA = {
+    'panorama': {
+        title: { bg: 'Панорама "Плевенска епопея"', en: 'Panorama "Pleven Epopee"' },
+        wiki: { bg: 'Плевенска_епопея_1877', en: 'Plevna_Panorama' },
+        maps: 'https://maps.app.goo.gl/7R6Z8k9rD1p9fJm6A',
+        img: 'panorama_epopeya.jpg'
+    },
+    'cascade': {
+        title: { bg: 'Водната каскада', en: 'The Water Cascade' },
+        wiki: { bg: 'Водна_каскада_(Плевен)', en: 'Pleven#Geography' },
+        maps: 'https://maps.app.goo.gl/yYvS6B9wS1D9fJm6A',
+        img: '1366x768.jpg'
+    },
+    'park': {
+        title: { bg: 'Парк Кайлъка', en: 'Kaylaka Park' },
+        wiki: { bg: 'Кайлъка', en: 'Kaylaka' },
+        maps: 'https://maps.app.goo.gl/7R6Z8k9rD1p9fJm6A',
+        img: '20150617104801_37909.jpeg'
+    },
+    'museum': {
+        title: { bg: 'Регионален исторически музей', en: 'Regional Historical Museum' },
+        wiki: { bg: 'Регионален_исторически_музей_(Плевен)', en: 'Regional_Historical_Museum_(Pleven)' },
+        maps: 'https://maps.app.goo.gl/6U6Z8k9rD1p9fJm6A',
+        img: 'muzei1.jpg'
+    }
+};
+
+async function openDiscovery(id) {
+    const data = DISCOVERY_DATA[id];
+    if (!data) return;
+
+    toggleModal('discovery-modal');
+    
+    const loader = document.getElementById('discovery-content-loader');
+    const content = document.getElementById('discovery-real-content');
+    const title = document.getElementById('discovery-modal-title');
+    const img = document.getElementById('discovery-modal-img');
+    const desc = document.getElementById('discovery-modal-description');
+    const wikiBtn = document.getElementById('discovery-wiki-link');
+    const mapsBtn = document.getElementById('discovery-maps-link');
+
+    loader.classList.remove('hidden-new');
+    content.classList.add('hidden-new');
+
+    title.textContent = data.title[currentLang];
+    img.src = data.img;
+    wikiBtn.href = `https://${currentLang}.wikipedia.org/wiki/${data.wiki[currentLang]}`;
+    mapsBtn.href = data.maps;
+
+    try {
+        const wikiTitle = data.wiki[currentLang];
+        const response = await fetch(`https://${currentLang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTitle)}`);
+        const wikiData = await response.json();
+        desc.innerHTML = wikiData.extract_html || wikiData.extract || 'Информацията не е налична в момента.';
+    } catch (e) {
+        desc.textContent = 'Грешка при зареждане на информация от Wikipedia.';
+    }
+
+    loader.classList.add('hidden-new');
+    content.classList.remove('hidden-new');
+    lucide.createIcons();
 }
 
 function changeGalleryImage(dir) {

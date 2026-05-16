@@ -120,36 +120,40 @@
                 <p data-i18n="discovery-p">Ето местата, които не бива да пропускате</p>
             </div>
             <div class="discovery-grid">
-                <div class="bento-card panorama">
+                <div class="bento-card panorama" onclick="openDiscovery('panorama')">
                     <img src="panorama_epopeya.jpg" alt="Панорама Плевенска епопея">
                     <div class="bento-body">
                         <span class="dist"><i data-lucide="map-pin"></i> 1.2 км</span>
                         <h3 data-i18n="discovery-pan-h3">Панорама "Плевенска епопея"</h3>
                         <p data-i18n="discovery-pan-p">Нашият градски символ. Едно от малкото места в света, които разказват историята по този начин.</p>
+                        <div class="bento-hint"><i data-lucide="plus-circle"></i> <span data-i18n="explore-more">Разгледай повече</span></div>
                     </div>
                 </div>
-                <div class="bento-card cascade">
+                <div class="bento-card cascade" onclick="openDiscovery('cascade')">
                     <img src="1366x768.jpg" alt="Водна каскада">
                     <div class="bento-body">
                         <span class="dist"><i data-lucide="map-pin"></i> 0.3 км</span>
                         <h3 data-i18n="discovery-cas-h3">Водната каскада</h3>
                         <p data-i18n="discovery-cas-p">Най-голямата водна каскада на Балканите, разположена в центъра на града.</p>
+                        <div class="bento-hint"><i data-lucide="plus-circle"></i> <span data-i18n="explore-more">Разгледай повече</span></div>
                     </div>
                 </div>
-                <div class="bento-card park">
+                <div class="bento-card park" onclick="openDiscovery('park')">
                     <img src="20150617104801_37909.jpeg" alt="Парк Кайлъка">
                     <div class="bento-body">
                         <span class="dist"><i data-lucide="map-pin"></i> 2.5 км</span>
                         <h3 data-i18n="discovery-park-h3">Парк Кайлъка</h3>
                         <p data-i18n="discovery-park-p">Огромен природен парк с язовири, пещери и зоопарк.</p>
+                        <div class="bento-hint"><i data-lucide="plus-circle"></i> <span data-i18n="explore-more">Разгледай повече</span></div>
                     </div>
                 </div>
-                <div class="bento-card museum">
+                <div class="bento-card museum" onclick="openDiscovery('museum')">
                     <img src="muzei1.jpg" alt="Исторически музей Плевен">
                     <div class="bento-body">
                         <span class="dist"><i data-lucide="map-pin"></i> 0.2 км</span>
                         <h3 data-i18n="discovery-mus-h3">Регионален исторически музей</h3>
                         <p data-i18n="discovery-mus-p">Разположен в една от най-красивите сгради в града, музеят съхранява над 190 000 културни ценности от древността до днес.</p>
+                        <div class="bento-hint"><i data-lucide="plus-circle"></i> <span data-i18n="explore-more">Разгледай повече</span></div>
                     </div>
                 </div>
             </div>
@@ -531,6 +535,43 @@
         </div>
     </footer>
 
+
+    <!-- Discovery Details Modal -->
+    <div id="discovery-modal" class="modal-blur hidden-new" onclick="closeModalOnOutsideClick(event, 'discovery-modal')">
+        <button class="modal-close" onclick="toggleModal('discovery-modal')">&times;</button>
+        <div class="modal-card wide">
+            <div id="discovery-content-loader" class="loader-container">
+                <div class="loader"></div>
+            </div>
+            <div id="discovery-real-content" class="hidden-new">
+                <div class="discovery-hero">
+                    <img id="discovery-modal-img" src="" alt="">
+                    <div class="discovery-hero-overlay">
+                        <h2 id="discovery-modal-title"></h2>
+                    </div>
+                </div>
+                <div class="discovery-details-grid">
+                    <div class="discovery-main-info">
+                        <div class="info-tag">
+                            <i data-lucide="info"></i>
+                            <span data-i18n="wiki-info">Информация от Wikipedia</span>
+                        </div>
+                        <div id="discovery-modal-description" class="wiki-summary"></div>
+                        <div class="discovery-actions">
+                            <a id="discovery-wiki-link" href="#" target="_blank" class="btn btn-wiki">
+                                <i data-lucide="external-link"></i>
+                                <span data-i18n="read-on-wiki">Прочети в Wikipedia</span>
+                            </a>
+                            <a id="discovery-maps-link" href="#" target="_blank" class="btn btn-maps">
+                                <i data-lucide="map"></i>
+                                <span data-i18n="view-on-maps">Виж в Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Gallery Modal -->
     <div id="gallery-modal" class="modal-blur hidden-new" onclick="closeModalOnOutsideClick(event, 'gallery-modal')">
