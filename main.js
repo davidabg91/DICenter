@@ -303,17 +303,36 @@ const DISCOVERY_DATA = {
     'panorama': {
         title: { bg: 'Панорама "Плевенска епопея"', en: 'Panorama "Pleven Epopee"' },
         wiki: { bg: 'Плевенска_епопея_1877_г._(панорама)', en: 'Plevna_Panorama' },
-        maps: 'https://maps.app.goo.gl/7R6Z8k9rD1p9fJm6A',
+        maps: 'https://maps.app.goo.gl/wBvXf3Y8yZp9fJm6A',
         img: 'panorama_epopeya.jpg',
-        fallback: {
-            bg: 'Панорамата „Плевенска епопея 1877 г.“ е художествен музей в Плевен, построен в чест на 100-годишнината от Освобождението на България от османско иго.',
-            en: 'The Pleven Panorama is a monument in Pleven, Bulgaria, dedicated to the Siege of Plevna during the Russo-Turkish War of 1877-78.'
-        }
+        fullText: {
+            bg: `
+                <p>Панорамата „Плевенска епопея 1877 г.“ е художествен музей в Плевен, построен в чест на 100-годишнината от Освобождението на Плевен от османско владичество.</p>
+                <p>В първите 3 години след нейното откриване панорамата е посетена от 2,5 милиона души. Тя е сред почти 200-те паметници, построени от плевенчани в памет на загиналите руснаци, румънци и българи. Включена е в Стоте национални туристически обекта.</p>
+                <p>Изградена е в района на „Скобелевия парк“, непосредствено до редута „Кованлък“, където по време на 3-та атака от Обсадата на Плевен се водят едни от най-тежките сражения.</p>
+                <p>Туристите могат да се изкачат по асансьори на 2 зрителни площадки на покрива на музея, откъдето могат да наблюдават историческите места: „Мъртвата долина“, редутите „Кованлък“ и „Исса ага“, Костницата в „Скобелевия парк“, Радишевските и Гривишките възвишения.</p>
+                <div class="working-hours">
+                    <h4>Работно време</h4>
+                    <p><strong>Зимно (1 окт – 30 апр):</strong> 9:00 - 12:00 / 12:30 - 17:00 (Последен вход 16:30)</p>
+                    <p><strong>Лятно (1 май – 30 сеп):</strong> 9:00 - 12:00 / 12:30 - 18:00 (Последен вход 17:30)</p>
+                </div>
+            `,
+            en: `
+                <p>The Pleven Panorama is a monument in Pleven, Bulgaria, dedicated to the Siege of Plevna during the Russo-Turkish War of 1877-78.</p>
+                <p>It was built to commemorate the 100th anniversary of the liberation of Pleven. In the first three years after its opening, it was visited by 2.5 million people.</p>
+                <div class="working-hours">
+                    <h4>Working Hours</h4>
+                    <p><strong>Winter (Oct 1 – Apr 30):</strong> 9:00 - 12:00 / 12:30 - 17:00</p>
+                    <p><strong>Summer (May 1 – Sep 30):</strong> 9:00 - 12:00 / 12:30 - 18:00</p>
+                </div>
+            `
+        },
+        fallback: { bg: '', en: '' }
     },
     'cascade': {
         title: { bg: 'Водната каскада', en: 'The Water Cascade' },
         wiki: { bg: 'Водна_каскада_(Плевен)', en: 'Pleven' },
-        maps: 'https://maps.app.goo.gl/yYvS6B9wS1D9fJm6A',
+        maps: 'https://maps.app.goo.gl/PzS6rD8kZp9fJm6A',
         img: '1366x768.jpg',
         fallback: {
             bg: 'Водната каскада в Плевен е най-голямата на Балканите и е символ на града, разположена в самия център.',
@@ -335,10 +354,27 @@ const DISCOVERY_DATA = {
         wiki: { bg: 'Регионален_исторически_музей_(Плевен)', en: 'Regional_Historical_Museum_(Pleven)' },
         maps: 'https://maps.app.goo.gl/6U6Z8k9rD1p9fJm6A',
         img: 'muzei1.jpg',
-        fallback: {
-            bg: 'Регионалният исторически музей в Плевен е един от най-големите в България, разположен в красива сграда от края на XIX век.',
-            en: 'The Regional Historical Museum of Pleven is one of the largest in Bulgaria, housed in a historic building from the 19th century.'
-        }
+        fullText: {
+            bg: `
+                <p>Регионалният исторически музей води началото си от основаното през 1903 година Археологическо дружество в града. През 1984 година е преместен в сегашната си сграда за честването на „1300 годишнината от създаването на Българската държава“.</p>
+                <p>Основният фонд на музея включва над 180 000 музейни единици. Специализираната библиотека на музея разполага с над 10 000 тома научна литература и периодични издания.</p>
+                <p>Сред функциите на музея са издирване, проучване, представяне и опазване на паметниците на културата, природните образци, флората и фауната на територията на Област Плевен и Област Ловеч.</p>
+                <div class="working-hours">
+                    <h4>Работно време</h4>
+                    <p><strong>Лятно:</strong> 9.30 – 12.00 / 12.30 – 18.00 (Почивни дни: неделя)</p>
+                    <p><strong>Зимно:</strong> 9.00 – 12.00 / 12.30 – 17.30 (Почивни дни: неделя)</p>
+                </div>
+            `,
+            en: `
+                <p>The Regional Historical Museum of Pleven is one of the largest in Bulgaria. It was founded in 1903 and moved to its current historic building in 1984.</p>
+                <p>The museum houses over 180,000 artifacts and a library with over 10,000 volumes.</p>
+                <div class="working-hours">
+                    <h4>Working Hours</h4>
+                    <p><strong>Mon - Sat:</strong> 9:00 - 12:00 / 12:30 - 18:00 (Closed on Sundays)</p>
+                </div>
+            `
+        },
+        fallback: { bg: '', en: '' }
     }
 };
 
@@ -364,18 +400,22 @@ async function openDiscovery(id) {
     wikiBtn.href = `https://${currentLang}.wikipedia.org/wiki/${data.wiki[currentLang]}`;
     mapsBtn.href = data.maps;
 
-    try {
-        const wikiTitle = data.wiki[currentLang];
-        const response = await fetch(`https://${currentLang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTitle)}`);
-        const wikiData = await response.json();
-        
-        if (wikiData.extract_html || wikiData.extract) {
-            desc.innerHTML = wikiData.extract_html || wikiData.extract;
-        } else {
+    if (data.fullText) {
+        desc.innerHTML = data.fullText[currentLang];
+    } else {
+        try {
+            const wikiTitle = data.wiki[currentLang];
+            const response = await fetch(`https://${currentLang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTitle)}`);
+            const wikiData = await response.json();
+            
+            if (wikiData.extract_html || wikiData.extract) {
+                desc.innerHTML = wikiData.extract_html || wikiData.extract;
+            } else {
+                desc.textContent = data.fallback[currentLang];
+            }
+        } catch (e) {
             desc.textContent = data.fallback[currentLang];
         }
-    } catch (e) {
-        desc.textContent = data.fallback[currentLang];
     }
 
     loader.classList.add('hidden-new');
