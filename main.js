@@ -302,27 +302,43 @@ function updateGallery() {
 const DISCOVERY_DATA = {
     'panorama': {
         title: { bg: 'Панорама "Плевенска епопея"', en: 'Panorama "Pleven Epopee"' },
-        wiki: { bg: 'Плевенска_епопея_1877', en: 'Plevna_Panorama' },
+        wiki: { bg: 'Плевенска_епопея_1877_г._(панорама)', en: 'Plevna_Panorama' },
         maps: 'https://maps.app.goo.gl/7R6Z8k9rD1p9fJm6A',
-        img: 'panorama_epopeya.jpg'
+        img: 'panorama_epopeya.jpg',
+        fallback: {
+            bg: 'Панорамата „Плевенска епопея 1877 г.“ е художествен музей в Плевен, построен в чест на 100-годишнината от Освобождението на България от османско иго.',
+            en: 'The Pleven Panorama is a monument in Pleven, Bulgaria, dedicated to the Siege of Plevna during the Russo-Turkish War of 1877-78.'
+        }
     },
     'cascade': {
         title: { bg: 'Водната каскада', en: 'The Water Cascade' },
-        wiki: { bg: 'Водна_каскада_(Плевен)', en: 'Pleven#Geography' },
+        wiki: { bg: 'Водна_каскада_(Плевен)', en: 'Pleven' },
         maps: 'https://maps.app.goo.gl/yYvS6B9wS1D9fJm6A',
-        img: '1366x768.jpg'
+        img: '1366x768.jpg',
+        fallback: {
+            bg: 'Водната каскада в Плевен е най-голямата на Балканите и е символ на града, разположена в самия център.',
+            en: 'The Water Cascade in Pleven is one of the city\'s most iconic attractions, featuring beautiful fountains and water displays.'
+        }
     },
     'park': {
         title: { bg: 'Парк Кайлъка', en: 'Kaylaka Park' },
         wiki: { bg: 'Кайлъка', en: 'Kaylaka' },
         maps: 'https://maps.app.goo.gl/7R6Z8k9rD1p9fJm6A',
-        img: '20150617104801_37909.jpeg'
+        img: '20150617104801_37909.jpeg',
+        fallback: {
+            bg: 'Кайлъка е защитена местност и огромен парк, разположен в пролома на река Тученишка, предлагащ възможности за отдих и спорт.',
+            en: 'Kaylaka is a large protected park located in a karst valley, offering beautiful nature, caves, and recreational areas.'
+        }
     },
     'museum': {
         title: { bg: 'Регионален исторически музей', en: 'Regional Historical Museum' },
         wiki: { bg: 'Регионален_исторически_музей_(Плевен)', en: 'Regional_Historical_Museum_(Pleven)' },
         maps: 'https://maps.app.goo.gl/6U6Z8k9rD1p9fJm6A',
-        img: 'muzei1.jpg'
+        img: 'muzei1.jpg',
+        fallback: {
+            bg: 'Регионалният исторически музей в Плевен е един от най-големите в България, разположен в красива сграда от края на XIX век.',
+            en: 'The Regional Historical Museum of Pleven is one of the largest in Bulgaria, housed in a historic building from the 19th century.'
+        }
     }
 };
 
@@ -352,9 +368,14 @@ async function openDiscovery(id) {
         const wikiTitle = data.wiki[currentLang];
         const response = await fetch(`https://${currentLang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTitle)}`);
         const wikiData = await response.json();
-        desc.innerHTML = wikiData.extract_html || wikiData.extract || 'Информацията не е налична в момента.';
+        
+        if (wikiData.extract_html || wikiData.extract) {
+            desc.innerHTML = wikiData.extract_html || wikiData.extract;
+        } else {
+            desc.textContent = data.fallback[currentLang];
+        }
     } catch (e) {
-        desc.textContent = 'Грешка при зареждане на информация от Wikipedia.';
+        desc.textContent = data.fallback[currentLang];
     }
 
     loader.classList.add('hidden-new');
