@@ -25,6 +25,9 @@
     <meta property="og:type" content="website">
     
     <link rel="stylesheet" href="style.css?v=1.3">
+    <style>
+      balloons { z-index: 99999 !important; }
+    </style>
     <script defer src="main.js"></script>
 </head>
 <body class="light-theme">
@@ -656,5 +659,12 @@
             <span class="tip-text">TIP</span>
         </div>
     </button>
+
+    <script type="module">
+      import { balloons } from 'https://cdn.jsdelivr.net/npm/balloons-js/dist/index.esm.js';
+      document.querySelector('.tip-btn').addEventListener('click', function() {
+        balloons();
+      });
+    </script>
 </body>
 </html>
