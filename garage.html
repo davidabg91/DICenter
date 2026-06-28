@@ -61,7 +61,7 @@
                     <p data-i18n="hero-p">Вашият перфектен престой в сърцето на Плевен. Лукс, уют и модерни удобства, събрани в едно незабравимо преживяване.</p>
                 </div>
                 <div class="hero-image">
-                    <img src="garage_hero.jpg" alt="Къща на центъра с гараж">
+                    <img src="garage_hero.jpg" alt="Къща на центъра с гараж" style="object-position: center 15%;">
                 </div>
             </div>
         </section>
@@ -143,6 +143,24 @@
                     <p data-i18n="entrance-p-desc" style="margin-bottom: 1.5rem;">Влезте през портала на двора, показан на снимката със стрелка, за да намерите къщата.</p>
                     <div class="entrance-image-preview" onclick="toggleModal('entrance-modal')" style="position: relative; border-radius: 1.5rem; overflow: hidden; cursor: pointer; border: 1px solid var(--card-border); transition: all 0.4s; background: #f8fafc;">
                         <img src="garage_entrance.png" alt="Courtyard Entrance" class="entrance-thumb" style="width: 100%; height: 200px; object-fit: cover; display: block; opacity: 0.8; transition: opacity 0.4s;">
+                        <div class="zoom-overlay">
+                            <i data-lucide="maximize"></i>
+                            <span data-i18n="click-to-zoom">Отвори на цял екран</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Garage Instructions Card -->
+                <div class="card premium garage-card">
+                    <div class="card-icon gold"><i data-lucide="car"></i></div>
+                    <h3 data-i18n="garage-card-h3">Ползване на Гаража</h3>
+                    <p data-i18n="garage-card-p-desc" style="margin-bottom: 1rem;">Гаражът е подходящ за стандартни коли и джипове с максимална височина <strong>1.85 м</strong>.</p>
+                    <div class="info-group" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <p data-i18n="garage-card-remote-info">🔑 Ключът/дистанционното за гаража е в сейфа заедно с ключовете за къщата.</p>
+                        <p data-i18n="garage-card-control-info">🔘 Натиснете стрелката веднъж (нагоре за отваряне, надолу за затваряне). Не задържайте бутона.</p>
+                    </div>
+                    <div class="garage-image-preview" onclick="toggleModal('garage-modal')" style="position: relative; border-radius: 1.5rem; overflow: hidden; cursor: pointer; border: 1px solid var(--card-border); transition: all 0.4s; background: #f8fafc;">
+                        <img src="garage_info.jpg" alt="Garage" class="garage-thumb" style="width: 100%; height: 200px; object-fit: cover; display: block; opacity: 0.8; transition: opacity 0.4s;">
                         <div class="zoom-overlay">
                             <i data-lucide="maximize"></i>
                             <span data-i18n="click-to-zoom">Отвори на цял екран</span>
@@ -731,6 +749,27 @@
             </div>
         </div>
     </div>
+
+    <!-- Garage Modal -->
+    <div id="garage-modal" class="modal-blur hidden-new" onclick="closeModalOnOutsideClick(event, 'garage-modal')">
+        <div class="modal-card wide">
+            <button class="modal-close" onclick="toggleModal('garage-modal')">&times;</button>
+            <div class="modal-head">
+                <i data-lucide="car"></i>
+                <h3 data-i18n="garage-modal-h3">Инструкция за Гаража</h3>
+                <p data-i18n="garage-modal-p">Височина на гаража: 1.85 м. Подходящ за леки коли и джипове.</p>
+            </div>
+            <div class="entrance-guide-container" style="margin-top: 2rem;">
+                <p style="margin-bottom: 2rem; color: var(--accent-gold); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <i data-lucide="zoom-in" id="garage-zoom-icon" style="width: 16px;"></i> <span id="garage-zoom-text">Кликни върху снимката за мащабиране</span>
+                </p>
+                <div class="garage-img-wrapper" id="garage-img-wrapper" onclick="toggleGarageZoom()">
+                    <img src="garage_info.jpg" alt="Garage Instructions" class="garage-modal-img">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- SVG Gradients -->
     <svg width="0" height="0" style="position: absolute;">
         <defs>

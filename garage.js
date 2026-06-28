@@ -125,6 +125,12 @@ const TRANSLATIONS = {
         "entrance-p-desc": "Влезте през портала на двора, показан на снимката със стрелка, за да намерите къщата.",
         "entrance-zoom-in": "Кликни върху снимката за мащабиране",
         "entrance-zoom-out": "Кликни за умаляване",
+        "garage-card-h3": "Ползване на Гаража",
+        "garage-card-p-desc": "Гаражът е подходящ за стандартни коли и джипове с максимална височина <strong>1.85 м</strong>.",
+        "garage-card-remote-info": "🔑 Ключът/дистанционното за гаража е в сейфа заедно с ключовете за къщата.",
+        "garage-card-control-info": "🔘 Натиснете стрелката веднъж (нагоре за отваряне, надолу за затваряне). Не задържайте бутона.",
+        "garage-modal-h3": "Инструкция за Гаража",
+        "garage-modal-p": "Височина на гаража: 1.85 м. Подходящ за леки коли и джипове.",
         "open-handbook-apt": "Отвори наръчника",
         "months": ["Януари", "Февруари", "Март", "Април", "Май", "Юни", "Юли", "Август", "Септември", "Октомври", "Ноември", "Декември"],
         "days": ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"]
@@ -251,6 +257,12 @@ const TRANSLATIONS = {
         "entrance-p-desc": "Enter through the courtyard gate shown on the picture with the arrow to find the house.",
         "entrance-zoom-in": "Click on the image to zoom",
         "entrance-zoom-out": "Click to zoom out",
+        "garage-card-h3": "Using the Garage",
+        "garage-card-p-desc": "The garage is suitable for standard cars and SUVs with a maximum height of <strong>1.85 m</strong>.",
+        "garage-card-remote-info": "🔑 The garage key/remote is in the key safe along with the house keys.",
+        "garage-card-control-info": "🔘 Press the arrow once (up to open, down to close). Do not hold the button.",
+        "garage-modal-h3": "Garage Instructions",
+        "garage-modal-p": "Garage height: 1.85 m. Suitable for standard cars and SUVs.",
         "open-handbook-apt": "Open Handbook",
         "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         "days": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
@@ -672,6 +684,23 @@ function toggleModal(id) {
             }
         }
     }
+
+    // Reset zoom state for garage modal if closed
+    if (id === 'garage-modal' && modal.classList.contains('hidden-new')) {
+        const wrapper = document.getElementById('garage-img-wrapper');
+        const icon = document.getElementById('garage-zoom-icon');
+        const text = document.getElementById('garage-zoom-text');
+        if (wrapper && wrapper.classList.contains('zoom-active')) {
+            wrapper.classList.remove('zoom-active');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'zoom-in');
+                if (window.lucide) window.lucide.createIcons();
+            }
+            if (text) {
+                text.innerText = currentLang === 'bg' ? 'Кликни върху снимката за мащабиране' : 'Click on the image to zoom';
+            }
+        }
+    }
 }
 
 function closeModalOnOutsideClick(event, id) {
@@ -737,6 +766,35 @@ function toggleEntranceZoom() {
     }
 }
 window.toggleEntranceZoom = toggleEntranceZoom;
+
+function toggleGarageZoom() {
+    const wrapper = document.getElementById('garage-img-wrapper');
+    const icon = document.getElementById('garage-zoom-icon');
+    const text = document.getElementById('garage-zoom-text');
+    if (!wrapper) return;
+    
+    wrapper.classList.toggle('zoom-active');
+    const isZoomed = wrapper.classList.contains('zoom-active');
+    
+    if (isZoomed) {
+        if (icon) {
+            icon.setAttribute('data-lucide', 'zoom-out');
+            if (window.lucide) window.lucide.createIcons();
+        }
+        if (text) {
+            text.innerText = currentLang === 'bg' ? 'Кликни за умаляване' : 'Click to zoom out';
+        }
+    } else {
+        if (icon) {
+            icon.setAttribute('data-lucide', 'zoom-in');
+            if (window.lucide) window.lucide.createIcons();
+        }
+        if (text) {
+            text.innerText = currentLang === 'bg' ? 'Кликни върху снимката за мащабиране' : 'Click on the image to zoom';
+        }
+    }
+}
+window.toggleGarageZoom = toggleGarageZoom;
 
 // --- Scroll Reveal (Ultra-Luxury Staggered) ---
 function initScrollReveal() {
