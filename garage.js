@@ -796,7 +796,7 @@ async function initAvailabilityCalendar() {
     const calendarGrid = document.getElementById('calendar-grid');
     if (!calendarGrid) return;
 
-    const icalUrl = 'https://bg.airbnb.com/calendar/ical/871070368525746121.ics?t=83b1cd1c4f6b4d6cbfdab8f8397000c7';
+    const icalUrl = 'https://bg.airbnb.com/calendar/ical/1210747322461877492.ics?t=9c1b50ca64cd4b7e9d08872cb9c54f00';
     const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(icalUrl);
 
     try {
