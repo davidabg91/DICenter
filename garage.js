@@ -732,7 +732,7 @@ window.toggleEntranceZoom = toggleEntranceZoom;
 
 // --- Scroll Reveal (Ultra-Luxury Staggered) ---
 function initScrollReveal() {
-    const revealContainers = document.querySelectorAll('.hero-card, .grid-layout, .discovery-grid, .dining-grid, .rules-grid, .host-card-new, .feedback-box, .calendar-card');
+    const revealContainers = document.querySelectorAll('.hero-card, .grid-layout, .location-access, .discovery-grid, .dining-grid, .rules-grid, .host-card-new, .feedback-box, .calendar-card');
     
     const observerOptions = {
         threshold: 0.15,
