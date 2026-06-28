@@ -92,11 +92,11 @@
                     <div class="info-group">
                         <div class="info-row">
                             <span class="label" data-i18n="wifi-label-name">Име на мрежата:</span>
-                            <span id="wifi-name" class="wifi-detail">TP-Link_E0DB</span>
+                            <span id="wifi-name" class="wifi-detail">davida1</span>
                         </div>
                         <div class="info-row">
                             <span class="label" data-i18n="wifi-label-pass">Парола:</span>
-                            <span id="wifi-pass" class="wifi-detail">49976717</span>
+                            <span id="wifi-pass" class="wifi-detail">davida01</span>
                         </div>
                     </div>
                     <button class="btn btn-action w-full" onclick="copyWifi('wifi-pass')" data-i18n="wifi-btn">
@@ -699,22 +699,34 @@
             <button class="modal-close" onclick="toggleModal('remote-modal')">&times;</button>
             <div class="modal-head">
                 <i data-lucide="tv"></i>
-                <h3 data-i18n="remote-h3">Smart TV & Media</h3>
-                <p data-i18n="remote-p">Вижте как да използвате дистанционното в дневната стая за оптимално преживяване.</p>
+                <h3 data-i18n="remote-h3">Телевизия & Медия</h3>
+                <p data-i18n="remote-p">Информация как да използвате телевизорите в къщата.</p>
             </div>
-            <div class="remote-guide-container">
-                <p style="margin-bottom: 2rem; color: var(--accent-gold); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                    <i data-lucide="maximize" style="width: 16px;"></i> Кликни върху снимката за цял екран
-                </p>
-                <div class="remote-img-wrapper" onclick="window.open('remote.jpg', '_blank')">
-                    <img src="remote.jpg" alt="TV Remote Guide" class="remote-img" style="min-width: auto;">
+            
+            <div class="tv-guide-container">
+                <!-- Living Room TV Card -->
+                <div class="tv-card">
+                    <div class="tv-card-icon"><i data-lucide="monitor"></i></div>
+                    <h4 data-i18n="tv-living-room-title">Телевизор в Хола</h4>
+                    <p data-i18n="tv-living-room-desc">За да гледате телевизия в хола, изберете вход <strong>HDMI 2</strong> от дистанционното управление.</p>
                 </div>
-            </div>
-
-            <div class="video-section">
-                <h4 data-i18n="remote-video-h4">Видео Урок</h4>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/5KHDFH_B9R8?start=46" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                
+                <!-- Bedroom TV Card -->
+                <div class="tv-card">
+                    <div class="tv-card-icon"><i data-lucide="tv"></i></div>
+                    <h4 data-i18n="tv-bedroom-title">Телевизор в Спалнята</h4>
+                    <p data-i18n="tv-bedroom-desc">За да гледате телевизия в спалнята, отворете приложението <strong>A1 XPLORE</strong>.</p>
+                    <div class="tv-credentials">
+                        <span class="tv-credentials-label" data-i18n="tv-credentials-label">Ако поиска вход (Name/Pass):</span>
+                        <div class="cred-row">
+                            <span class="cred-key">Name:</span>
+                            <span class="cred-value select-all">Davida1991@gmail.com</span>
+                        </div>
+                        <div class="cred-row">
+                            <span class="cred-key">Pass:</span>
+                            <span class="cred-value select-all">davidabg91</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
