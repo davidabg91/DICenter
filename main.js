@@ -22,6 +22,8 @@ const TRANSLATIONS = {
         "safe-p": "Вижте как да отворите сейфа и вземете ключовете за вашия престой.",
         "safe-notice": "ВАЖНО: Ключът е само за горната ключалка!",
         "click-to-zoom": "Отвори на цял екран",
+        "safe-zoom-in": "Кликни върху снимката за мащабиране",
+        "safe-zoom-out": "Кликни за умаляване",
         "view-gallery": "Виж галерия",
         "smart-h3": "Smart Удобства",
         "smart-p": "Апартаментът е оборудван с Google Home за вашия комфорт. Кажете „Hey Google“ и опитайте:",
@@ -133,6 +135,8 @@ const TRANSLATIONS = {
         "safe-p": "See how to open the safe and get the keys for your stay.",
         "safe-notice": "IMPORTANT: The key is for the upper lock only!",
         "click-to-zoom": "Open full screen",
+        "safe-zoom-in": "Click on the image to zoom",
+        "safe-zoom-out": "Click to zoom out",
         "view-gallery": "View Gallery",
         "smart-h3": "Smart Amenities",
         "smart-p": "The apartment is equipped with Google Home for your comfort. Say \"Hey Google\" and try:",
@@ -458,7 +462,13 @@ function setLanguage(lang) {
 
     // Update Safe Images
     const safePreviewImg = document.getElementById('safe-preview-img');
-    if (safePreviewImg) safePreviewImg.src = 'safeinstruc.png';
+    if (safePreviewImg) {
+        safePreviewImg.src = lang === 'bg' ? 'safebg.png' : 'safeEN.png';
+    }
+    const safeModalImg = document.getElementById('safe-modal-img');
+    if (safeModalImg) {
+        safeModalImg.src = lang === 'bg' ? 'safebg.png' : 'safeEN.png';
+    }
 
     // Handle month transition for calendar
     if (document.getElementById('calendar-grid')) {
@@ -602,13 +612,59 @@ function toggleModal(id) {
     if (!modal) return;
     modal.classList.toggle('hidden-new');
     document.body.style.overflow = modal.classList.contains('hidden-new') ? '' : 'hidden';
+
+    // Reset zoom state for safe modal if closed
+    if (id === 'safe-modal' && modal.classList.contains('hidden-new')) {
+        const wrapper = document.getElementById('safe-img-wrapper');
+        const icon = document.getElementById('safe-zoom-icon');
+        const text = document.getElementById('safe-zoom-text');
+        if (wrapper && wrapper.classList.contains('zoom-active')) {
+            wrapper.classList.remove('zoom-active');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'zoom-in');
+                if (window.lucide) window.lucide.createIcons();
+            }
+            if (text) {
+                text.innerText = currentLang === 'bg' ? 'Кликни върху снимката за мащабиране' : 'Click on the image to zoom';
+            }
+        }
+    }
 }
 
 function closeModalOnOutsideClick(event, id) {
     if (event.target.id === id) toggleModal(id);
 }
 
+function toggleSafeZoom() {
+    const wrapper = document.getElementById('safe-img-wrapper');
+    const icon = document.getElementById('safe-zoom-icon');
+    const text = document.getElementById('safe-zoom-text');
+    if (!wrapper) return;
+    
+    wrapper.classList.toggle('zoom-active');
+    const isZoomed = wrapper.classList.contains('zoom-active');
+    
+    if (isZoomed) {
+        if (icon) {
+            icon.setAttribute('data-lucide', 'zoom-out');
+            if (window.lucide) window.lucide.createIcons();
+        }
+        if (text) {
+            text.innerText = currentLang === 'bg' ? 'Кликни за умаляване' : 'Click to zoom out';
+        }
+    } else {
+        if (icon) {
+            icon.setAttribute('data-lucide', 'zoom-in');
+            if (window.lucide) window.lucide.createIcons();
+        }
+        if (text) {
+            text.innerText = currentLang === 'bg' ? 'Кликни върху снимката за мащабиране' : 'Click on the image to zoom';
+        }
+    }
+}
+
 window.toggleModal = toggleModal;
+window.toggleSafeZoom = toggleSafeZoom;
 
 // --- Scroll Reveal (Ultra-Luxury Staggered) ---
 function initScrollReveal() {

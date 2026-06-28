@@ -73,7 +73,7 @@
                     <div class="card-icon gold"><i data-lucide="key"></i></div>
                     <h3 data-i18n="safe-h3">Сейф за ключове</h3>
                     <p data-i18n="safe-p">Вижте как да отворите сейфа и вземете ключовете за вашия престой.</p>
-                    <div class="safe-image-preview" onclick="window.open('safeinstruc.png', '_blank')">
+                    <div class="safe-image-preview" onclick="toggleModal('safe-modal')">
                         <img id="safe-preview-img" src="safeinstruc.png" alt="Safe Instructions" class="safe-thumb">
                         <div class="zoom-overlay">
                             <i data-lucide="maximize"></i>
@@ -608,6 +608,31 @@
         // Init icons
         lucide.createIcons();
     </script>
+    <!-- Safe Modal -->
+    <div id="safe-modal" class="modal-blur hidden-new" onclick="closeModalOnOutsideClick(event, 'safe-modal')">
+        <div class="modal-card wide">
+            <button class="modal-close" onclick="toggleModal('safe-modal')">&times;</button>
+            <div class="modal-head">
+                <i data-lucide="key"></i>
+                <h3 data-i18n="safe-h3">Сейф за ключове</h3>
+                <p data-i18n="safe-p">Вижте как да отворите сейфа и вземете ключовете за вашия престой.</p>
+            </div>
+            <div class="safe-guide-container">
+                <p style="margin-bottom: 2rem; color: var(--accent-gold); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer;" onclick="toggleSafeZoom()">
+                    <i data-lucide="zoom-in" id="safe-zoom-icon" style="width: 16px;"></i> <span id="safe-zoom-text" data-i18n="safe-zoom-in">Кликни върху снимката за мащабиране</span>
+                </p>
+                <div class="safe-img-wrapper" id="safe-img-wrapper" onclick="toggleSafeZoom()">
+                    <img id="safe-modal-img" src="safeinstruc.png" alt="Safe Instructions" class="safe-modal-img">
+                </div>
+            </div>
+            
+            <div class="safe-notice" style="margin-top: 3rem; justify-content: center; max-width: 400px; margin-left: auto; margin-right: auto;">
+                <i data-lucide="info"></i>
+                <span data-i18n="safe-notice">ВАЖНО: Ключът е само за горната ключалка!</span>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-blur hidden-new" id="remote-modal" onclick="closeModalOnOutsideClick(event, 'remote-modal')">
         <div class="modal-card wide">
             <button class="modal-close" onclick="toggleModal('remote-modal')">&times;</button>
