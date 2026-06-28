@@ -1304,8 +1304,6 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
     min-width: 1200px; 
 }
 
-.safe-guide-container {
-    margin-top: 3rem;
 .safe-guide-container, .entrance-guide-container {
     margin-top: 3rem;
     background: #fdfdfd;
