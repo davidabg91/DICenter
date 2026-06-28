@@ -4,11 +4,11 @@
 
 const TRANSLATIONS = {
     bg: {
-        "title": "ДИ Център - Премиум Апартамент в Плевен",
-        "header-subtitle": "Вашият елегантен дом в сърцето на Плевен",
+        "title": "Къща на центъра с гараж - Плевен",
+        "header-subtitle": "КЪЩА НА ЦЕНТЪРА С ГАРАЖ",
         "hero-guide-desc": "Вашият дигитален наръчник за максимално лесен и приятен престой.",
         "hero-h1": "Добре дошли",
-        "hero-p": "Благодарим ви, че избрахте ДИ Център! За нас е удоволствие да бъдете наши гости. Надяваме се да се чувствате като у дома си и да се насладите на всеки момент от престоя си.",
+        "hero-p": "Благодарим ви, че избрахте нашата къща с гараж! За нас е удоволствие да бъдете наши гости. Надяваме се да се чувствате комфортно и да се насладите на всеки момент от престоя си.",
         "remote-h3": "Smart TV & Media",
         "remote-p": "Вижте как да използвате дистанционното в дневната стая за оптимално преживяване.",
         "remote-btn": "Инструкции за дистанционното",
@@ -113,16 +113,24 @@ const TRANSLATIONS = {
         "other-property-p": "Изберете следващото си преживяване при нас",
         "here-badge": "Вие сте тук",
         "other-place-badge": "Другото ни място:",
-        "open-handbook-garage": "Отвори наръчника",
+        "location-h2": "Адрес и Локация",
+        "location-p": "Как да стигнете до къщата и къде да влезете",
+        "address-h3": "Нашият Адрес",
+        "nav-maps": "Навигация в Google Maps",
+        "entrance-h3": "Влизане в Двора",
+        "entrance-p-desc": "Влезте през портала на двора, показан на снимката със стрелка, за да намерите къщата.",
+        "entrance-zoom-in": "Кликни върху снимката за мащабиране",
+        "entrance-zoom-out": "Кликни за умаляване",
+        "open-handbook-apt": "Отвори наръчника",
         "months": ["Януари", "Февруари", "Март", "Април", "Май", "Юни", "Юли", "Август", "Септември", "Октомври", "Ноември", "Декември"],
         "days": ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"]
     },
     en: {
-        "title": "DI Center - Premium Apartment in Pleven",
-        "header-subtitle": "Your elegant home in the heart of Pleven",
+        "title": "Center House with Garage - Pleven",
+        "header-subtitle": "CENTER HOUSE WITH GARAGE",
         "hero-guide-desc": "Your digital handbook for an effortless and enjoyable stay.",
         "hero-h1": "Welcome",
-        "hero-p": "Thank you for choosing DI Center! It is a pleasure to have you as our guest. We hope you feel right at home and enjoy every moment of your stay.",
+        "hero-p": "Thank you for choosing our house with a garage! It is a pleasure to have you as our guest. We hope you feel comfortable and enjoy your stay.",
         "remote-h3": "Smart TV & Media",
         "remote-p": "See how to operate the remote control in the living room for the best experience.",
         "remote-btn": "Remote Instructions",
@@ -227,7 +235,15 @@ const TRANSLATIONS = {
         "other-property-p": "Choose your next experience with us",
         "here-badge": "You are here",
         "other-place-badge": "Our other place:",
-        "open-handbook-garage": "Open Handbook",
+        "location-h2": "Address & Location",
+        "location-p": "How to get to the house and where to enter",
+        "address-h3": "Our Address",
+        "nav-maps": "Navigation in Google Maps",
+        "entrance-h3": "Entering the Courtyard",
+        "entrance-p-desc": "Enter through the courtyard gate shown on the picture with the arrow to find the house.",
+        "entrance-zoom-in": "Click on the image to zoom",
+        "entrance-zoom-out": "Click to zoom out",
+        "open-handbook-apt": "Open Handbook",
         "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         "days": ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
     }
@@ -465,11 +481,11 @@ function setLanguage(lang) {
     // Update Safe Images
     const safePreviewImg = document.getElementById('safe-preview-img');
     if (safePreviewImg) {
-        safePreviewImg.src = lang === 'bg' ? 'safebg.png' : 'safeEN.png';
+        safePreviewImg.src = 'garage_safe.png';
     }
     const safeModalImg = document.getElementById('safe-modal-img');
     if (safeModalImg) {
-        safeModalImg.src = lang === 'bg' ? 'safebg.png' : 'safeEN.png';
+        safeModalImg.src = 'garage_safe.png';
     }
 
     // Handle month transition for calendar
@@ -631,6 +647,23 @@ function toggleModal(id) {
             }
         }
     }
+
+    // Reset zoom state for entrance modal if closed
+    if (id === 'entrance-modal' && modal.classList.contains('hidden-new')) {
+        const wrapper = document.getElementById('entrance-img-wrapper');
+        const icon = document.getElementById('entrance-zoom-icon');
+        const text = document.getElementById('entrance-zoom-text');
+        if (wrapper && wrapper.classList.contains('zoom-active')) {
+            wrapper.classList.remove('zoom-active');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'zoom-in');
+                if (window.lucide) window.lucide.createIcons();
+            }
+            if (text) {
+                text.innerText = currentLang === 'bg' ? 'Кликни върху снимката за мащабиране' : 'Click on the image to zoom';
+            }
+        }
+    }
 }
 
 function closeModalOnOutsideClick(event, id) {
@@ -667,6 +700,35 @@ function toggleSafeZoom() {
 
 window.toggleModal = toggleModal;
 window.toggleSafeZoom = toggleSafeZoom;
+
+function toggleEntranceZoom() {
+    const wrapper = document.getElementById('entrance-img-wrapper');
+    const icon = document.getElementById('entrance-zoom-icon');
+    const text = document.getElementById('entrance-zoom-text');
+    if (!wrapper) return;
+    
+    wrapper.classList.toggle('zoom-active');
+    const isZoomed = wrapper.classList.contains('zoom-active');
+    
+    if (isZoomed) {
+        if (icon) {
+            icon.setAttribute('data-lucide', 'zoom-out');
+            if (window.lucide) window.lucide.createIcons();
+        }
+        if (text) {
+            text.innerText = currentLang === 'bg' ? 'Кликни за умаляване' : 'Click to zoom out';
+        }
+    } else {
+        if (icon) {
+            icon.setAttribute('data-lucide', 'zoom-in');
+            if (window.lucide) window.lucide.createIcons();
+        }
+        if (text) {
+            text.innerText = currentLang === 'bg' ? 'Кликни върху снимката за мащабиране' : 'Click on the image to zoom';
+        }
+    }
+}
+window.toggleEntranceZoom = toggleEntranceZoom;
 
 // --- Scroll Reveal (Ultra-Luxury Staggered) ---
 function initScrollReveal() {

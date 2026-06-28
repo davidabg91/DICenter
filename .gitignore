@@ -1,6 +1,7 @@
 node_modules/
 *.js
 !main.js
+!garage.js
 *.png
 !Cantonata.png
 !dss_takeaway_bg.png
@@ -25,5 +26,9 @@ node_modules/
 !himera(1).jfif
 !himera_tavern.png
 !muzei1.jpg
+!garage_hero.jpg
+!garage_safe.png
+!garage_entrance.png
 package-lock.json
 package.json
+

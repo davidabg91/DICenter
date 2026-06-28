@@ -28,7 +28,7 @@
     <style>
       balloons { z-index: 99999 !important; }
     </style>
-    <script defer src="main.js"></script>
+    <script defer src="garage.js"></script>
 </head>
 <body class="light-theme">
     <!-- Ambient background elements -->
@@ -61,7 +61,7 @@
                     <p data-i18n="hero-p">Вашият перфектен престой в сърцето на Плевен. Лукс, уют и модерни удобства, събрани в едно незабравимо преживяване.</p>
                 </div>
                 <div class="hero-image">
-                    <img src="apartment.jpg" alt="ДИ Център Интериор">
+                    <img src="garage_hero.jpg" alt="Къща на центъра с гараж">
                 </div>
             </div>
         </section>
@@ -74,7 +74,7 @@
                     <h3 data-i18n="safe-h3">Сейф за ключове</h3>
                     <p data-i18n="safe-p">Вижте как да отворите сейфа и вземете ключовете за вашия престой.</p>
                     <div class="safe-image-preview" onclick="toggleModal('safe-modal')">
-                        <img id="safe-preview-img" src="safeinstruc.png" alt="Safe Instructions" class="safe-thumb">
+                        <img id="safe-preview-img" src="garage_safe.png" alt="Safe Instructions" class="safe-thumb">
                         <div class="zoom-overlay">
                             <i data-lucide="maximize"></i>
                             <span data-i18n="click-to-zoom">Отвори на цял екран</span>
@@ -113,6 +113,42 @@
                     </button>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- Location & Access Section -->
+        <section class="location-access container" id="location">
+            <div class="section-header">
+                <h2 data-i18n="location-h2">Адрес и Локация</h2>
+                <p data-i18n="location-p">Как да стигнете до къщата и къде да влезете</p>
+            </div>
+            <div class="location-grid">
+                <!-- Map and Address Details -->
+                <div class="card premium location-card">
+                    <div class="card-icon gold"><i data-lucide="map-pin"></i></div>
+                    <h3 data-i18n="address-h3">Нашият Адрес</h3>
+                    <p class="address-text" style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">гр. Плевен, ул. "Гео Милев" № 6</p>
+                    <a href="https://maps.app.goo.gl/gUvu2jdTGa2zkXWHA" target="_blank" class="btn btn-action w-full" style="margin-bottom: 2rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                        <i data-lucide="external-link"></i> <span data-i18n="nav-maps">Навигация в Google Maps</span>
+                    </a>
+                    <div class="map-iframe-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.513089065342!2d24.61326977654492!3d43.40810376824789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40abf4ab75b5a191%3A0x46a823cabb01d118!2sPleven%20Center%2C%20ul.%20%22Geo%20Milev%22%206%2C%205801%20Pleven!5e0!3m2!1sml!2sbg!4v1782661199178!5m2!1sml!2sbg" width="100%" height="300" style="border:0; border-radius: 1.5rem;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+
+                <!-- Courtyard Access Instructions -->
+                <div class="card premium entrance-card">
+                    <div class="card-icon blue"><i data-lucide="navigation"></i></div>
+                    <h3 data-i18n="entrance-h3">Влизане в Двора</h3>
+                    <p data-i18n="entrance-p-desc" style="margin-bottom: 1.5rem;">Влезте през портала на двора, показан на снимката със стрелка, за да намерите къщата.</p>
+                    <div class="entrance-image-preview" onclick="toggleModal('entrance-modal')" style="position: relative; border-radius: 1.5rem; overflow: hidden; cursor: pointer; border: 1px solid var(--card-border); transition: all 0.4s; background: #f8fafc;">
+                        <img src="garage_entrance.png" alt="Courtyard Entrance" class="entrance-thumb" style="width: 100%; height: 200px; object-fit: cover; display: block; opacity: 0.8; transition: opacity 0.4s;">
+                        <div class="zoom-overlay">
+                            <i data-lucide="maximize"></i>
+                            <span data-i18n="click-to-zoom">Отвори на цял екран</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -458,22 +494,7 @@
                 <p data-i18n="other-property-p">Изберете следващото си преживяване при нас</p>
             </div>
             <div class="properties-grid">
-                <!-- Current Property -->
-                <div class="property-wrapper current">
-                    <div class="property-badge-header">
-                        <div class="here-badge-inline">
-                            <i data-lucide="map-pin"></i>
-                            <span data-i18n="here-badge">Вие сте тук</span>
-                        </div>
-                    </div>
-                    <div class="airbnb-embed-frame" data-id="1274011504896548508" data-view="home" data-hide-price="true" style="width: 450px; height: 300px; margin: auto;">
-                        <a href="https://bg.airbnb.com/rooms/1274011504896548508?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget">Прегледайте в Airbnb</a>
-                        <a href="https://bg.airbnb.com/rooms/1274011504896548508?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget" rel="nofollow">Дом · Pleven · ★4,96 · 2 спални · 3 легла · 1 баня</a>
-                        <script async="" src="https://bg.airbnb.com/embeddable/airbnb_jssdk"></script>
-                    </div>
-                </div>
-
-                <!-- Other Property -->
+                <!-- Other Property (Apartment) -->
                 <div class="property-wrapper">
                     <div class="property-badge-header">
                         <div class="here-badge-inline">
@@ -481,15 +502,30 @@
                             <span data-i18n="other-place-badge">Другото ни място:</span>
                         </div>
                     </div>
+                    <div class="airbnb-embed-frame" data-id="1274011504896548508" data-view="home" data-hide-price="true" style="width: 450px; height: 300px; margin: auto;">
+                        <a href="https://bg.airbnb.com/rooms/1274011504896548508?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget">Прегледайте в Airbnb</a>
+                        <a href="https://bg.airbnb.com/rooms/1274011504896548508?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget" rel="nofollow">Дом · Pleven · ★4,96 · 2 спални · 3 легла · 1 баня</a>
+                        <script async="" src="https://bg.airbnb.com/embeddable/airbnb_jssdk"></script>
+                    </div>
+                    <div style="text-align: center; margin-top: 1.5rem; padding-bottom: 1.5rem;">
+                        <a href="index.html" class="btn btn-action" style="padding: 1rem 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <i data-lucide="book-open"></i> <span data-i18n="open-handbook-apt">Отвори наръчника</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Current Property (Garage House) -->
+                <div class="property-wrapper current">
+                    <div class="property-badge-header">
+                        <div class="here-badge-inline">
+                            <i data-lucide="map-pin"></i>
+                            <span data-i18n="here-badge">Вие сте тук</span>
+                        </div>
+                    </div>
                     <div class="airbnb-embed-frame" data-id="1210747322461877492" data-view="home" data-hide-price="true" style="width: 450px; height: 300px; margin: auto;">
                         <a href="https://bg.airbnb.com/rooms/1210747322461877492?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget">Прегледайте в Airbnb</a>
                         <a href="https://bg.airbnb.com/rooms/1210747322461877492?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget" rel="nofollow">Дом · Pleven · ★4,93 · 1 спалня · 1 легло · 1 баня</a>
                         <script async="" src="https://bg.airbnb.com/embeddable/airbnb_jssdk"></script>
-                    </div>
-                    <div style="text-align: center; margin-top: 1.5rem; padding-bottom: 1.5rem;">
-                        <a href="garage.html" class="btn btn-action" style="padding: 1rem 2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            <i data-lucide="book-open"></i> <span data-i18n="open-handbook-garage">Отвори наръчника</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -627,13 +663,33 @@
                     <i data-lucide="zoom-in" id="safe-zoom-icon" style="width: 16px;"></i> <span id="safe-zoom-text" data-i18n="safe-zoom-in">Кликни върху снимката за мащабиране</span>
                 </p>
                 <div class="safe-img-wrapper" id="safe-img-wrapper" onclick="toggleSafeZoom()">
-                    <img id="safe-modal-img" src="safeinstruc.png" alt="Safe Instructions" class="safe-modal-img">
+                    <img id="safe-modal-img" src="garage_safe.png" alt="Safe Instructions" class="safe-modal-img">
                 </div>
             </div>
             
             <div class="safe-notice" style="margin-top: 3rem; justify-content: center; max-width: 400px; margin-left: auto; margin-right: auto;">
                 <i data-lucide="info"></i>
                 <span data-i18n="safe-notice">ВАЖНО: Ключът е само за горната ключалка!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Entrance Modal -->
+    <div id="entrance-modal" class="modal-blur hidden-new" onclick="closeModalOnOutsideClick(event, 'entrance-modal')">
+        <div class="modal-card wide">
+            <button class="modal-close" onclick="toggleModal('entrance-modal')">&times;</button>
+            <div class="modal-head">
+                <i data-lucide="navigation"></i>
+                <h3 data-i18n="entrance-h3">Влизане в Двора</h3>
+                <p data-i18n="entrance-p-desc">Влезте през портала на двора, показан на снимката със стрелка, за да намерите къщата.</p>
+            </div>
+            <div class="entrance-guide-container">
+                <p style="margin-bottom: 2rem; color: var(--accent-gold); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer;" onclick="toggleEntranceZoom()">
+                    <i data-lucide="zoom-in" id="entrance-zoom-icon" style="width: 16px;"></i> <span id="entrance-zoom-text" data-i18n="entrance-zoom-in">Кликни върху снимката за мащабиране</span>
+                </p>
+                <div class="entrance-img-wrapper" id="entrance-img-wrapper" onclick="toggleEntranceZoom()">
+                    <img src="garage_entrance.png" alt="Courtyard Entrance Instructions" class="entrance-modal-img">
+                </div>
             </div>
         </div>
     </div>
