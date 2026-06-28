@@ -456,7 +456,11 @@ function setLanguage(lang) {
                     el.appendChild(icon);
                     lucide.createIcons(); // Re-init icons if injected via innerHTML
                 } else {
-                    el.innerText = TRANSLATIONS[lang][key];
+                    if (TRANSLATIONS[lang][key].includes('<')) {
+                        el.innerHTML = TRANSLATIONS[lang][key];
+                    } else {
+                        el.innerText = TRANSLATIONS[lang][key];
+                    }
                 }
             }
         }
